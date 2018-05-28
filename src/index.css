@@ -13,6 +13,7 @@ body {
   height: 450px;
 }
 
+/* Individual squares */
 .wrapper > * {
   background-color: red;
   height: 100%;
@@ -24,7 +25,10 @@ ol, ul {
 }
 
 .status {
-  margin-bottom: 10px;
+  width: 450px;
+  font-family: monospace, sans-serif;
+  text-align: center;
+  margin: auto;
 }
 
 .Square {
@@ -41,14 +45,10 @@ ol, ul {
   text-align: center;
 }
 
-
-/* .Square:focus {
-  outline: none;
+.Square:hover{
+  background-color: pink;
+  cursor: pointer;
 }
-
-.kbd-navigation .Square:focus {
-  background: #ddd;
-} */
 
 .game {
   display: flex;

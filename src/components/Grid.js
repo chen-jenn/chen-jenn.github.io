@@ -11,9 +11,10 @@ class Grid extends Component {
 
     return(
       <div className='Grid'>
-        <div className='status'>{status}</div>
+        <div className='status'><h1>{status}</h1></div>
 
         <div className="wrapper">
+          {/* What is 'this' in this case? */}
           <div>{this.renderSquare(0)}</div>
           <div>{this.renderSquare(1)}</div>
           <div>{this.renderSquare(2)}</div>
