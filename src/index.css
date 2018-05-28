@@ -4,14 +4,23 @@ body {
   font-family: sans-serif;
 }
 
-ol, ul {
-  padding-left: 30px;
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  margin: auto;
+  width: 450px;
+  height: 450px;
 }
 
-.grid-row:after {
-  clear: both;
-  content: "";
-  display: table;
+.wrapper > * {
+  background-color: red;
+  height: 100%;
+  width: 100%;
+}
+
+ol, ul {
+  padding-left: 30px;
 }
 
 .status {
@@ -19,27 +28,27 @@ ol, ul {
 }
 
 .Square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
+  /* Turn each square into a flex container I guess */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:white;
+  font-size: 75px;
   font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
+  height: 100%;
   padding: 0;
   text-align: center;
-  width: 34px;
 }
 
-.Square:focus {
+
+/* .Square:focus {
   outline: none;
 }
 
 .kbd-navigation .Square:focus {
   background: #ddd;
-}
+} */
 
 .game {
   display: flex;
