@@ -1,22 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Square extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      value: null
-    };
-  }
-
-  render(){
-    return(
-      // this.state.value is what is written inside the button
-      // this.setState will update the component's statement to a new thing
-      <div className="Square" onClick={() => this.setState({value: 'X'})}>
-        {this.state.value}
-      </div>
-    );
-  }
+function Square(props) {
+  return(
+    // this.state.value is what is written inside the button
+    // this.setState({value: 'X'}) would update the component's statement to a new thing
+    <div className="Square" onClick={props.onClick}>
+      {props.value}
+    </div>
+  );
 }
 
 export { Square };

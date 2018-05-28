@@ -40,7 +40,7 @@ ol, ul {
   color:white;
   font-size: 75px;
   font-weight: bold;
-  height: 100%;
+  min-height: 100%;
   padding: 0;
   text-align: center;
 }
