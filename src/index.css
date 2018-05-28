@@ -15,9 +15,27 @@ body {
 
 /* Individual squares */
 .wrapper > * {
-  background-color: red;
+  background-color: #a1e9c6;
   height: 100%;
   width: 100%;
+}
+
+.restart {
+  width: 450px;
+  height: 30px;
+  line-height: 30px;
+  margin: 20px auto;
+
+  text-align: center;
+  font-family: monospace, sans-serif;
+  border: 1px solid teal;
+  border-radius: 5px;
+}
+
+.restart:hover{
+  background-color: teal;
+  color: white;
+  cursor: pointer;
 }
 
 ol, ul {
@@ -27,6 +45,7 @@ ol, ul {
 .status {
   width: 450px;
   font-family: monospace, sans-serif;
+  color: teal; 
   text-align: center;
   margin: auto;
 }
@@ -46,7 +65,7 @@ ol, ul {
 }
 
 .Square:hover{
-  background-color: pink;
+  background-color: #4ca177;
   cursor: pointer;
 }
 

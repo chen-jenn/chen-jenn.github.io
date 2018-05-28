@@ -20,8 +20,16 @@ function getWinner(squares){
       return squares[a];
     }
   }
-
   return null;
+}
+
+function isTie(arr){
+  for(let i = 0; i < arr.length; i++){
+    if (arr[i] === null){
+      return false;
+    }
+  }
+  return true;
 }
 
 class Grid extends Component {
@@ -60,6 +68,8 @@ class Grid extends Component {
     let status;
     if (winner) {
       status = 'Winner: ' + winner;
+    } else if (isTie(this.state.squares) === true){
+      status = "It's a tie!"
     } else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
@@ -81,7 +91,9 @@ class Grid extends Component {
           <div>{this.renderSquare(8)}</div>
         </div>
 
+        <div className='restart'>Restart Game</div>
       </div>
+
     );
   }
 }
