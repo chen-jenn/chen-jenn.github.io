@@ -1,6 +1,29 @@
 import React, { Component } from 'react';
 import { Square } from './Square';
 
+function getWinner(squares){
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+  for (let i = 0; i < lines.length; i++){
+    // e.g. for lines[0], a = 0, b = 1, c = 2
+    const [a, b, c] = lines[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+
+  return null;
+}
+
 class Grid extends Component {
   constructor(props){
     super(props);
@@ -12,29 +35,17 @@ class Grid extends Component {
 
   handleClick(i) {
     const squares = this.state.squares.slice();
+    // cannot click anymore after a winner is declared
+    if (getWinner(squares) || squares[i]){
+      return;
+    }
+
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       squares: squares,
-      //resetting the state at each click
+      //switching the state at each click
       xIsNext: !this.state.xIsNext
     });
-  }
-
-  function winner(squares){
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ]; 
-
-    for (let i = 0; i < lines.length; i++){
-
-    }
   }
 
   renderSquare(i) {
@@ -45,7 +56,13 @@ class Grid extends Component {
   }
 
   render(){
-    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    const winner = getWinner(this.state.squares);
+    let status;
+    if (winner) {
+      status = 'Winner: ' + winner;
+    } else {
+      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    }
 
     return(
       <div className='Grid'>
