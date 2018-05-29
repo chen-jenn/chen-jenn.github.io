@@ -37,8 +37,17 @@ class Grid extends Component {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
-      xIsNext: true,
+      xIsNext: true
     }
+
+    this.clearBoard = this.clearBoard.bind(this);
+  }
+
+  clearBoard(){
+    this.setState({
+      squares: Array(9).fill(null),
+      xIsNext: true
+    })
   }
 
   handleClick(i) {
@@ -91,7 +100,10 @@ class Grid extends Component {
           <div>{this.renderSquare(8)}</div>
         </div>
 
-        <div className='restart'>Restart Game</div>
+        <div
+          className='restart'
+          onClick={this.clearBoard}
+          >Restart Game</div>
       </div>
 
     );
