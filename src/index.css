@@ -38,10 +38,6 @@ body {
   cursor: pointer;
 }
 
-/* ol, ul {
-  padding-left: 30px;
-} */
-
 .status {
   width: 450px;
   font-family: monospace, sans-serif;
@@ -67,13 +63,4 @@ body {
 .Square:hover{
   background-color: #4ca177;
   cursor: pointer;
-}
-
-.game {
-  display: flex;
-  flex-direction: row;
-}
-
-.game-info {
-  margin-left: 20px;
 }
