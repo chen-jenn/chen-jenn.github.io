@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Square } from './Square';
+import Confetti from 'react-dom-confetti';
 
 function getWinner(squares){
   const lines = [
@@ -37,17 +38,44 @@ class Grid extends Component {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
-      xIsNext: true
+      xIsNext: true,
+      confetti: false
     }
 
     this.clearBoard = this.clearBoard.bind(this);
+    this.launch = this.launch.bind(this);
   }
 
   clearBoard(){
     this.setState({
       squares: Array(9).fill(null),
-      xIsNext: true
+      xIsNext: true,
+      confetti: false
     })
+  }
+
+  //Confetti
+
+  //Where to put it ??
+  // return <Confetti active={ someProp } config={ config }/>
+  launch(){
+    const config = {
+      angle: 94,
+      spread: 223,
+      startVelocity: 78,
+      elementCount: 200,
+      decay: 0.75
+    };
+
+    this.setState({
+      confetti: true
+    })
+
+    if (this.state.confetti === true){
+      return(
+        <Confetti config={config} />
+      )
+    } 
   }
 
   handleClick(i) {
@@ -102,8 +130,15 @@ class Grid extends Component {
 
         <div
           className='restart'
-          onClick={this.clearBoard}
-          >Restart Game</div>
+          onClick={this.clearBoard}>
+          Restart Game
+        </div>
+
+        <div
+          className='confetti'
+          onClick={this.launch}>
+          click for confetti
+        </div>
       </div>
 
     );
